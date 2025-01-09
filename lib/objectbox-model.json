@@ -1,0 +1,84 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:2509932866568654685",
+      "lastPropertyId": "5:9130869758434471119",
+      "name": "Account",
+      "properties": [
+        {
+          "id": "1:6180821647170486259",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7541446841425384180",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:4324644488485928338",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "4:4303849500928674626",
+          "name": "password",
+          "type": 9
+        },
+        {
+          "id": "5:9130869758434471119",
+          "name": "userId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:3313194373733003988",
+          "relationTarget": "User"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:4976008068316769294",
+      "lastPropertyId": "4:5305149924838128630",
+      "name": "User",
+      "properties": [
+        {
+          "id": "1:1783103857917164293",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1482258152615142575",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:1870404471420711726",
+          "name": "email",
+          "type": 9
+        },
+        {
+          "id": "4:5305149924838128630",
+          "name": "password",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:4976008068316769294",
+  "lastIndexId": "1:3313194373733003988",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
