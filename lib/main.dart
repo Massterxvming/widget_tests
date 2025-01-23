@@ -5,7 +5,12 @@ import 'package:widget_test/Tool/toast_manager.dart';
 import 'package:widget_test/widgetState/outlinedButton.dart';
 import 'package:widget_test/widgetState/widgetStateController.dart';
 
-void main() {
+import 'dataBase/object_data.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await ObjectData.instance.init();
+
   runApp(const MyApp());
 }
 
@@ -98,6 +103,55 @@ class _MyHomePageState extends State<MyHomePage> {
                 // await Future.delayed(const Duration(seconds: 2));
                 // cancelLoading();
               },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CupertinoButton(
+                  child: Text('添加多个'),
+                  onPressed: () async {
+                    setState(() {
+                      ObjectData.instance.setCurrentAccountFriends();
+                    });
+                  },
+                ),
+                CupertinoButton(
+                  child: Text('添加一个'),
+                  onPressed: () async {
+                    setState(() {
+                      ObjectData.instance.setCurrentAccountBob();
+                    });
+                  },
+                ),
+                CupertinoButton(
+                  child: Text('清除所有'),
+                  onPressed: () async {
+                    setState(() {
+                      ObjectData.instance.clearall();
+                    });
+                  },
+                ),
+                CupertinoButton(
+                  child: Text('设置别的用户'),
+                  onPressed: () async {
+                    setState(() {
+                      ObjectData.instance.setOtherAccount();
+                    });
+                  },
+                ),
+              ],
+            ),
+            Text(
+              'Current User: ${ObjectData.instance.userBox.getAll()}',
+            ),
+            Text(
+              softWrap: true,
+              'Current Account: ${ObjectData.instance.getCurrentAccount()}',
+            ),
+            Text(
+              softWrap: true,
+              'Sing Account: ${ObjectData.instance.getSingleUserAccount()}',
             ),
           ],
         ),

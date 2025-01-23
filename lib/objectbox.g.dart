@@ -85,7 +85,7 @@ final _entities = <obx_int.ModelEntity>[
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[
         obx_int.ModelBacklink(
-            name: 'account', srcEntity: 'Account', srcField: 'user')
+            name: 'accounts', srcEntity: 'Account', srcField: 'user')
       ])
 ];
 
@@ -150,13 +150,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final emailOffset = fbb.writeString(object.email);
           final passwordOffset = fbb.writeString(object.password);
           fbb.startTable(6);
-          fbb.addInt64(0, object.id);
+          fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, emailOffset);
           fbb.addOffset(3, passwordOffset);
           fbb.addInt64(4, object.user.targetId);
           fbb.finish(fbb.endTable());
-          return object.id;
+          return object.id ?? 0;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -169,7 +169,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGet(buffer, rootOffset, 10, '');
           final object = Account(
               name: nameParam, email: emailParam, password: passwordParam)
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+            ..id =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           object.user.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0);
           object.user.attach(store);
@@ -180,8 +181,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
         toOneRelations: (User object) => [],
         toManyRelations: (User object) => {
               obx_int.RelInfo<Account>.toOneBacklink(
-                      5, object.id, (Account srcObject) => srcObject.user):
-                  object.account
+                      5, object.id!, (Account srcObject) => srcObject.user):
+                  object.accounts
             },
         getId: (User object) => object.id,
         setId: (User object, int id) {
@@ -192,12 +193,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final emailOffset = fbb.writeString(object.email);
           final passwordOffset = fbb.writeString(object.password);
           fbb.startTable(5);
-          fbb.addInt64(0, object.id);
+          fbb.addInt64(0, object.id ?? 0);
           fbb.addOffset(1, nameOffset);
           fbb.addOffset(2, emailOffset);
           fbb.addOffset(3, passwordOffset);
           fbb.finish(fbb.endTable());
-          return object.id;
+          return object.id ?? 0;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -210,12 +211,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGet(buffer, rootOffset, 10, '');
           final object = User(
               name: nameParam, email: emailParam, password: passwordParam)
-            ..id = const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+            ..id =
+                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
           obx_int.InternalToManyAccess.setRelInfo<User>(
-              object.account,
+              object.accounts,
               store,
               obx_int.RelInfo<Account>.toOneBacklink(
-                  5, object.id, (Account srcObject) => srcObject.user));
+                  5, object.id!, (Account srcObject) => srcObject.user));
           return object;
         })
   };
@@ -262,6 +264,6 @@ class User_ {
   static final password =
       obx.QueryStringProperty<User>(_entities[1].properties[3]);
 
-  /// see [User.account]
-  static final account = obx.QueryBacklinkToMany<Account, User>(Account_.user);
+  /// see [User.accounts]
+  static final accounts = obx.QueryBacklinkToMany<Account, User>(Account_.user);
 }
