@@ -24,7 +24,7 @@ class _OutlinedButtonState extends State<Outlinedbutton> {
             borderRadius: BorderRadius.zero,
           );
         }
-        if(callback.contains(WidgetState.values)){
+        if(callback.contains(WidgetState.disabled)){
           return RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           );
@@ -35,11 +35,14 @@ class _OutlinedButtonState extends State<Outlinedbutton> {
           if(callback.contains(WidgetState.pressed)){
             return BorderSide(color: Colors.red);
           }
-          if(callback.contains(WidgetState.values)){
+          if(callback.contains(WidgetState.disabled)){
             return BorderSide(color: Colors.black);
           }
           if(callback.contains(WidgetState.selected)){
             return BorderSide(color: Colors.blueAccent);
+          }
+          if(callback.contains(WidgetState.focused)){
+            return BorderSide(color: Colors.green);
           }
           return null;
         }),

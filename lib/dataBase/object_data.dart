@@ -24,11 +24,11 @@ class ObjectData {
   late Box<User> userBox;
   User currentUser = User(name: 'name', email: 'email', password: 'password');
   Future<void> init () async {
-    Store _singleStore = await openStore(
-      directory: p.join((await getApplicationDocumentsDirectory()).path,
-          "obx-demo-relations"),
-    );
-    userBox = Box<User>(_singleStore);
+    // Store _singleStore = await openStore(
+    //   directory: p.join((await getApplicationDocumentsDirectory()).path,
+    //       "obx-demo-relations"),
+    // );
+    // userBox = Box<User>(_singleStore);
   }
 
   void setOtherAccount() {
@@ -67,7 +67,7 @@ class ObjectData {
   }
 
   String getSingleUserAccount() {
-    List<Account> accounts = userBox.getAll().last.accounts.toList();
+    List<Account> accounts = userBox.getAll().last.accounts.toList()??[];
     // if(userBox.getAll().isNotEmpty){
     //   for(User user in userBox.getAll()){
     //     accounts.addAll(user.accounts);
