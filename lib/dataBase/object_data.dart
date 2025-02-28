@@ -17,6 +17,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../objectbox.g.dart';
 
+
 class ObjectData {
   ObjectData._();
   static final ObjectData instance = ObjectData._();
@@ -79,7 +80,4 @@ class ObjectData {
   void clearall() {
     userBox.removeAll();
   }
-
-
-
 }

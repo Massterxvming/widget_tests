@@ -26,8 +26,10 @@ dependencies:
     sdk: flutter
 
 
-
+  #状态管理
+  flutter_bloc: ^9.0.0
   get: ^4.7.2
+  provider: ^6.1.2
 #  弹窗
   bot_toast: ^4.1.3
   cupertino_icons: ^1.0.6

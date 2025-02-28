@@ -30,8 +30,9 @@ class AppController{
         'Neathub@2024',
         'http://192.168.1.102/EWS/Exchange.asmx',
       );
-      final service = ExchangeService.withVersion(ExchangeVersion.Exchange2016)
-        ..Url = Uri.parse("https://outlook.office365.com/ews/exchange.asmx")
+      final service = ExchangeService.withVersion(ExchangeVersion.Exchange2013_SP1)
+        ..Url = Uri.parse("http://192.168.1.102/EWS/Exchange.asmx")
+        // ..Url = Uri.parse("https://outlook.office365.com/ews/exchange.asmx")
         ..Credentials = credentials
         ..TraceFlags = [TraceFlags.EwsRequest, TraceFlags.EwsResponse]
         ..TraceEnabled = true;

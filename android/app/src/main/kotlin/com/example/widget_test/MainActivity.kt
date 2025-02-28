@@ -1,4 +1,4 @@
-package com.example.widget_test
+package com.zhaojiale.widget_test
 
 import io.flutter.embedding.android.FlutterActivity
 

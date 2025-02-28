@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:widget_test/bloc_test/single_page/bloc_page.dart';
 import 'package:widget_test/controller/app_controller.dart';
+import 'package:widget_test/provider_test/provider_page/Provider_page.dart';
 
 import '../Tool/toast_manager.dart';
 import '../dataBase/object_data.dart';
@@ -75,12 +77,13 @@ class _AppRootState extends State<AppRoot> {
                             Text('Hello, world!'),
                             SizedBox(width: 10),
                             CupertinoButton(
-                                child: Text('Cancel'),
-                                onPressed: () {
-                                  // BotToast.cleanAll();
-                                  appToast.close?.call();
-                                  print('cancel');
-                                })
+                              child: Text('Cancel'),
+                              onPressed: () {
+                                // BotToast.cleanAll();
+                                appToast.close?.call();
+                                print('cancel');
+                              },
+                            )
                           ],
                         ),
                       ),
@@ -135,15 +138,18 @@ class _AppRootState extends State<AppRoot> {
               ),
             ),
             CupertinoButton(
-                child: Text('go to cupertino page'),
-                onPressed: () {
-                  Get.to(()=>CupertinosPage(title: pageTitle));
-                  // Navigator.of(context).pushNamed(Routes.cupertinoPage);
-                },
-                ),
-            FilledButton.tonal(onPressed: (){
-              _modifyPageTitle();
-            }, child: Text('改变传入字符'),),
+              child: Text('go to cupertino page'),
+              onPressed: () {
+                Get.to(() => CupertinosPage(title: pageTitle));
+                // Navigator.of(context).pushNamed(Routes.cupertinoPage);
+              },
+            ),
+            FilledButton.tonal(
+              onPressed: () {
+                _modifyPageTitle();
+              },
+              child: Text('改变传入字符'),
+            ),
             MaterialButton(
               mouseCursor: MouseCursor.defer,
               autofocus: true,
@@ -158,6 +164,18 @@ class _AppRootState extends State<AppRoot> {
                 });
               },
               child: const Text('ews test'),
+            ),
+            DrawerButton(
+              onPressed: () {
+                Get.to(() => BlocPage());
+              },
+            ),
+            ToggleButtons(
+              children: [Text('1'), Text('2'), Text('3')],
+              isSelected: [true, false, false],
+              onPressed: (index) {
+                Get.to(() => ProviderPage());
+              },
             ),
           ],
         ),
