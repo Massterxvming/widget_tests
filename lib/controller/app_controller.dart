@@ -5,6 +5,7 @@ import 'package:ews/Enumerations/ExchangeVersion.dart';
 import 'package:ews/Enumerations/TraceFlags.dart';
 import 'package:ews/Enumerations/WellKnownFolderName.dart';
 import 'package:ews/Http/BasicCredentials.dart';
+import 'package:media_kit/media_kit.dart';
 
 class AppController{
   AppController._internal(){
@@ -20,7 +21,7 @@ class AppController{
   static AppController get instance=> _instance;
 
   Future<void> init()async{
-
+    MediaKit.ensureInitialized();
   }
 
   Future<void> initEws() async {

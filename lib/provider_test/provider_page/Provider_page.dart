@@ -19,7 +19,7 @@ class ProviderPage extends StatelessWidget {
   }
 
   Widget _buildPage(BuildContext context) {
-    final provider = Provider.of<DemoProvider>(context);
+    final provider = Provider.of<DemoProvider>(context,listen: false);
     String name = provider.state.name;
     return Scaffold(
       appBar: AppBar(
