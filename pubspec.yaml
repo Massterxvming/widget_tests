@@ -45,6 +45,11 @@ dependencies:
   media_kit: ^1.2.0
 #  按钮组件
   otp_timer_button: ^1.1.1
+#  mmkv
+  mmkv: ^2.2.3
+  mmkv_ohos: ^2.2.3
+
+  path_provider: ^2.1.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -3,6 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  mmkv_linux
   objectbox_flutter_libs
 )
 

@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/cupertino.dart';
-
 abstract class StateBase<T extends StatefulWidget> extends State<T>
 {
 
