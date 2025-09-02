@@ -164,10 +164,10 @@ class _AppRootState extends State<AppRoot> {
             },
             child: const Text('ews test'),
           ),
-          DrawerButton(
+          FilledButton.tonal(
             onPressed: () {
-              Get.to(() => BlocPage());
-            },
+              Get.to(() => const BlocPage());
+            }, child: Text('Bloc'),
           ),
           ToggleButtons(
             children: [Text('1'), Text('2'), Text('3')],

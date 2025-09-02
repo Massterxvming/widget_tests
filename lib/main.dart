@@ -10,7 +10,7 @@ import 'mmkv_test/mmkv_data.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await ObjectData.instance.init();
+  // await ObjectData.instance.init();
   await MMKVData.init();
   await AppController.instance.init();
 
