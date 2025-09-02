@@ -21,7 +21,7 @@ class AppController{
   static AppController get instance=> _instance;
 
   Future<void> init()async{
-    MediaKit.ensureInitialized();
+    // MediaKit.ensureInitialized();
   }
 
   Future<void> initEws() async {

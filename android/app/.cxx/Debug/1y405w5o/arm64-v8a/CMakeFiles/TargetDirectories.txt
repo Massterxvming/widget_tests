@@ -1,0 +1,2 @@
+/Users/gatsby/StudioProjects/widget_tests/android/app/.cxx/Debug/1y405w5o/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/gatsby/StudioProjects/widget_tests/android/app/.cxx/Debug/1y405w5o/arm64-v8a/CMakeFiles/rebuild_cache.dir
