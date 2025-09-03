@@ -13,8 +13,11 @@ import '../Tool/toast_manager.dart';
 import '../dataBase/object_data.dart';
 import '../routes/routes.dart';
 import '../widgetState/outlinedButton.dart';
+import '../widgetState/splash_button.dart';
 import '../widgetState/widgetStateController.dart';
 import 'cupertino_page.dart';
+import 'custom_print_page/custom_print_page.dart';
+import 'custom_print_page/print_path.dart';
 
 class AppRoot extends StatefulWidget {
   const AppRoot({super.key, required this.title});
@@ -31,7 +34,7 @@ class _AppRootState extends State<AppRoot> {
   String pageTitle = 'Cupertino Page';
 
   ///按钮控制器
-  OtpTimerButtonController _otpTimerButtonController = OtpTimerButtonController();
+    OtpTimerButtonController _otpTimerButtonController = OtpTimerButtonController();
 
   void _incrementCounter() {
     setState(() {
@@ -163,6 +166,13 @@ class _AppRootState extends State<AppRoot> {
               });
             },
             child: const Text('ews test'),
+          ),
+          SplashButton(
+            margin: const EdgeInsets.symmetric( horizontal: 48),
+            onTap: () {
+              Get.to(()=> BlocPage());
+            },
+            text: 'go to custom print',
           ),
           FilledButton.tonal(
             onPressed: () {
