@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:widget_test/bloc_test/single_page/bloc_page.dart';
 import 'package:widget_test/controller/app_controller.dart';
+import 'package:widget_test/page/skeletonizer_test/skeletonizer_page.dart';
 import 'package:widget_test/page/video_box/normal_video.dart';
 import 'package:widget_test/provider_test/provider_page/Provider_page.dart';
 
@@ -185,6 +186,20 @@ class _AppRootState extends State<AppRoot> {
               );
             },
             text: 'go to custom print',
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SplashButton(
+            margin: const EdgeInsets.symmetric(horizontal: 48),
+            onTap: () {
+              Get.to(
+                    () => const SkeletonizerPage(),
+                // duration: const Duration(seconds: 1),
+                // transition: Transition.circularReveal,
+              );
+            },
+            text: 'go to skeletonizer',
           ),
           FilledButton.tonal(
             onPressed: () {
