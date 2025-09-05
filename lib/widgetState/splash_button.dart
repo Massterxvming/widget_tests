@@ -39,9 +39,7 @@ class SplashButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: InkWell(
           borderRadius: BorderRadius.circular(16),
-          onTap: () {
-            Get.to(() => onTap);
-          },
+          onTap: onTap,
           highlightColor: Colors.red.withValues(alpha: 0.2),
           splashColor: Colors.blue.withValues(alpha: 0.2),
           child: Container(

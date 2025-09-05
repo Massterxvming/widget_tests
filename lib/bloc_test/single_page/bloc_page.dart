@@ -36,7 +36,7 @@ class BlocPage extends StatelessWidget {
               onPressed: () {
                 bloc.add(LoadSingleEvent());
               },
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             ),
           ),
         ],

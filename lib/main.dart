@@ -1,18 +1,18 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:widget_test/page/app_root.dart';
 import 'package:widget_test/routes/routes.dart';
 
+import 'Tool/quick_action_tool.dart';
 import 'controller/app_controller.dart';
-import 'dataBase/object_data.dart';
 import 'mmkv_test/mmkv_data.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await ObjectData.instance.init();
   await MMKVData.init();
   await AppController.instance.init();
+
 
   runApp(const MyApp());
 }

@@ -9,6 +9,7 @@ import 'package:widget_test/controller/app_controller.dart';
 import 'package:widget_test/page/video_box/normal_video.dart';
 import 'package:widget_test/provider_test/provider_page/Provider_page.dart';
 
+import '../Tool/quick_action_tool.dart';
 import '../Tool/toast_manager.dart';
 import '../dataBase/object_data.dart';
 import '../routes/routes.dart';
@@ -34,7 +35,14 @@ class _AppRootState extends State<AppRoot> {
   String pageTitle = 'Cupertino Page';
 
   ///按钮控制器
-    OtpTimerButtonController _otpTimerButtonController = OtpTimerButtonController();
+  final OtpTimerButtonController _otpTimerButtonController = OtpTimerButtonController();
+
+  @override
+  void initState() {
+    QuickActionTool.instance.initialize();
+    QuickActionTool.instance.setQuickActions([]);
+    super.initState();
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -150,41 +158,46 @@ class _AppRootState extends State<AppRoot> {
             onPressed: () {
               _modifyPageTitle();
             },
-            child: Text('改变传入字符'),
+            child: const Text('改变传入字符'),
           ),
-          MaterialButton(
-            mouseCursor: MouseCursor.defer,
-            autofocus: true,
-            onPressed: () {
-              var cancel = BotToast.showLoading();
-              Future.delayed(const Duration(seconds: 10)).then((value) {
-                cancel();
-              });
-              appController.initEws().then((value) {
-                cancel();
-                // BotToast.showText(text: "ews init success");
-              });
-            },
-            child: const Text('ews test'),
-          ),
+          // MaterialButton(
+          //   mouseCursor: MouseCursor.defer,
+          //   autofocus: true,
+          //   onPressed: () {
+          //     var cancel = BotToast.showLoading();
+          //     Future.delayed(const Duration(seconds: 10)).then((value) {
+          //       cancel();
+          //     });
+          //     appController.initEws().then((value) {
+          //       cancel();
+          //       // BotToast.showText(text: "ews init success");
+          //     });
+          //   },
+          //   child: const Text('ews test'),
+          // ),
           SplashButton(
-            margin: const EdgeInsets.symmetric( horizontal: 48),
+            margin: const EdgeInsets.symmetric(horizontal: 48),
             onTap: () {
-              Get.to(()=> BlocPage());
+              Get.to(
+                () => const CustomPrintPage(),
+                duration: const Duration(seconds: 1),
+                transition: Transition.circularReveal,
+              );
             },
             text: 'go to custom print',
           ),
           FilledButton.tonal(
             onPressed: () {
               Get.to(() => const BlocPage());
-            }, child: Text('Bloc'),
+            },
+            child: Text('Bloc'),
           ),
           ToggleButtons(
-            children: [Text('1'), Text('2'), Text('3')],
-            isSelected: [true, false, false],
+            isSelected: const [true, false, false],
             onPressed: (index) {
               Get.to(() => ProviderPage());
             },
+            children: const [Text('1'), Text('2'), Text('3')],
           ),
         ],
       ),

@@ -40,7 +40,7 @@ dependencies:
 #网络请求
   dio: ^5.8.0+1
 #  exchang
-  ews: ^2.3.0
+#  ews: ^2.3.0
 #  媒体播放器
   media_kit: ^1.2.0
 #  按钮组件
@@ -48,7 +48,11 @@ dependencies:
 #  mmkv
   mmkv: ^2.2.3
   mmkv_ohos: ^2.2.3
-
+#  工具
+  quick_actions: ^1.1.0
+#  骨架
+  skeletonizer: ^2.1.0+1
+#  文件存储
   path_provider: ^2.1.5
 dev_dependencies:
   flutter_test:
