@@ -12,6 +12,7 @@ void main() async {
   // await ObjectData.instance.init();
   await MMKVData.init();
   await AppController.instance.init();
+  await Get.putAsync(AppController.instance.init() as AsyncInstanceBuilderCallback);
 
   runApp(const MyApp());
 }
