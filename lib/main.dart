@@ -12,7 +12,6 @@ void main() async {
   // await ObjectData.instance.init();
   await MMKVData.init();
   await AppController.instance.init();
-  //韩磊傻逼
 
   runApp(const MyApp());
 }
